@@ -39,7 +39,7 @@ public class ProductoAjustado implements Producto{
 
 	@Override
 	public String generarTextoFactura() {
-		String mssg = "* " + productoBase.getNombre() + " -> $" + precio + ", "+ calorias +" cal.\n";
+		String mssg = productoBase.getNo() + ". " + productoBase.getNombre() + " -> $" + precio + ", "+ calorias +" cal.\n";
 		if (agregados != "") {
 			mssg += "  (Con adición de " + agregados + ")\n";
 		}
@@ -52,6 +52,11 @@ public class ProductoAjustado implements Producto{
 	@Override
 	public int getCalorias() {
 		return calorias;
+	}
+
+	@Override
+	public int getNo() {
+		return productoBase.getNo();
 	}
 
 }

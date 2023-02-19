@@ -10,4 +10,6 @@ public interface Producto {
 
 	public int getCalorias();
 
+	public int getNo();
+
 }

@@ -17,7 +17,6 @@ import modelo.Ingrediente;
 import modelo.Pedido;
 import modelo.Producto;
 import modelo.ProductoAjustado;
-import modelo.ProductoMenu;
 
 public class Aplicacion {
 	
@@ -110,8 +109,8 @@ public class Aplicacion {
 						for (Producto producto: menuBase) {
 							System.out.println(producto.generarTextoFactura());
 						}
-						String nombre = input("\nPor favor ingrese el nombre del producto que desea agregar al pedido");
-						Producto producto = restaurante.getProducto(nombre);
+						int No = Integer.parseInt(input("\nPor favor ingrese el número del producto que desea agregar al pedido"));
+						Producto producto = restaurante.getProducto(No);
 						if (producto != null) {
 							if (producto.getClass() != Bebida.class) {
 								System.out.println("\n¿Desea agregar o quitar algún ingrediente?");
@@ -124,10 +123,10 @@ public class Aplicacion {
 									ArrayList<Ingrediente> ingredientes = restaurante.getIngredientes();
 									if (ajustar.equals("1")) {
 										for (Ingrediente ingrediente: ingredientes) {
-										System.out.println("\n* " + ingrediente.getNombre() + " -> $"+ingrediente.getCostoAdicional());
+											System.out.println("\n"+ ingrediente.getNo() +"* " + ingrediente.getNombre() + " -> $"+ingrediente.getCostoAdicional());
 										}
-										String nombreIngrediente = input("\nPor favor ingrese el nombre del ingrediente del que desea la adición");
-										Ingrediente ingrediente = restaurante.getIngrediente(nombreIngrediente);
+										int noIngrediente = Integer.parseInt(input("\nPor favor ingrese el número del ingrediente del que desea la adición"));
+										Ingrediente ingrediente = restaurante.getIngrediente(noIngrediente);
 										if (ingrediente != null) {
 											ProductoAjustado productoAjustado = new ProductoAjustado(producto);
 											//System.out.println(productoAjustado.getCalorias());
@@ -142,10 +141,10 @@ public class Aplicacion {
 									}
 									else {
 										for (Ingrediente ingrediente: ingredientes) {
-											System.out.println("\n* " + ingrediente.getNombre());
+											System.out.println("\n"+ ingrediente.getNo() +"* " + ingrediente.getNombre() + " -> $"+ingrediente.getCostoAdicional());
 											}
-										String nombreIngrediente = input("\nPor favor ingrese el nombre del ingrediente que desea quitar");
-										Ingrediente ingrediente = restaurante.getIngrediente(nombreIngrediente);
+										int noIngrediente = Integer.parseInt(input("\nPor favor ingrese el número del ingrediente del que desea la adición"));
+										Ingrediente ingrediente = restaurante.getIngrediente(noIngrediente);
 										if (ingrediente != null) {
 											ProductoAjustado productoAjustado = new ProductoAjustado(producto);
 											//System.out.println(productoAjustado.getCalorias());

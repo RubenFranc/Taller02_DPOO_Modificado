@@ -5,11 +5,13 @@ public class Ingrediente {
 	private String nombre;
 	private int costoAdicional;
 	private int calorias;
+	private int n;
 	
-	public Ingrediente (String nombre, int costoAdicional, int calorias) {
+	public Ingrediente (String nombre, int costoAdicional, int calorias, int n) {
 		this.nombre = nombre;
 		this.costoAdicional = costoAdicional;
 		this.calorias = calorias;
+		this.n = n;
 	}
 	
 	public String getNombre () {
@@ -22,6 +24,10 @@ public class Ingrediente {
 	
 	public int getCalorias() {
 		return calorias;
+	}
+
+	public int getNo() {
+		return n;
 	}
 	
 }

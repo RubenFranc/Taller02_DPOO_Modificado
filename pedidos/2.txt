@@ -1,0 +1,22 @@
+RESTAURANTE DE HAMBURGUESAS DPOO
+--------------------------------
+
+ID pedido: 2
+Nombre cliente: r
+Dirección cliente: t
+
+Artículos comprados
+--------------------------------
+2. corral queso -> $17000.0, 2400 cal.
+  (Con adición de cebolla,)
+2. corral queso -> $16000.0, 1000 cal.
+  (Sin cebolla,)
+2. corral queso -> $16000.0, 1700 cal.
+
+--------------------------------
+Precio neto: $49000.0
+IVA: $9310.0
+Precio total: $58310.0
+--------------------------------
+
+¡Gracias por su compra!
