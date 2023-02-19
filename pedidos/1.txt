@@ -2,8 +2,8 @@ RESTAURANTE DE HAMBURGUESAS DPOO
 --------------------------------
 
 ID pedido: 1
-Nombre cliente: d
-Dirección cliente: f
+Nombre cliente: df
+Dirección cliente: g
 
 Artículos comprados
 --------------------------------
