@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 import modelo.Restaurante;
@@ -57,6 +58,16 @@ public class Aplicacion {
     			mapPedidos.put(Integer.parseInt(id), factura_1);
     			idPedidos += id + "\n";
     			id = br_2.readLine();
+    			String[] partesFactura = factura_1.split("\n--------------------------------\n");
+    			String registro = partesFactura[2];
+    			String[] registros = registro.split(" ^");
+    			Arrays.sort(registros);
+    			String sortedR = "";
+    			for (String r: registros) {
+    				sortedR += r;
+    			}
+    			//System.out.println(sortedR);
+    			restaurante.agregarRegistroPedido(sortedR);
     		}
     		br_2.close();
         }
@@ -174,10 +185,20 @@ public class Aplicacion {
 						if (nItems > 0 & opcion_seleccionada == 2) {
 
 							mapPedidos.put(pedido.getIdPedido(), pedido.generarTextoFactura());
+							boolean existeRegistro = restaurante.equals();
 							restaurante.cerrarYGuardarPedido();
+							pedido.ordenarPedido();
+							restaurante.agregarRegistroPedido(pedido.getRegistroPedido());
 							pedidoEnCurso = false;
 							int idPedido = pedido.getIdPedido();
 							System.out.println("\nID PEDIDO: " + idPedido + "\n");
+							if (existeRegistro) {
+								System.out.println("Ya se había hecho un pedido igual");
+							}
+							else {
+								System.out.println("No se había hecho un pedido igual");
+								
+							}
 							idPedidos += idPedido + "\n";
 							File file = new File("idPedidos.txt");
 							FileWriter fw = new FileWriter(file);

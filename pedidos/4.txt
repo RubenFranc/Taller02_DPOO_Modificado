@@ -1,9 +1,9 @@
 RESTAURANTE DE HAMBURGUESAS DPOO
 --------------------------------
 
-ID pedido: 1
-Nombre cliente: Rubén Franco
-Dirección cliente: 
+ID pedido: 4
+Nombre cliente: f
+Dirección cliente: g
 
 Artículos comprados
 --------------------------------

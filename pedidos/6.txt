@@ -1,18 +1,19 @@
 RESTAURANTE DE HAMBURGUESAS DPOO
 --------------------------------
 
-ID pedido: 1
-Nombre cliente: Rubén Franco
-Dirección cliente: 
+ID pedido: 6
+Nombre cliente: 3
+Dirección cliente: 6
 
 Artículos comprados
 --------------------------------
-3. corral pollo -> $15000.0, 1800 cal.
+3. corral pollo -> $16000.0, 2500 cal.
+  (Con adición de cebolla,)
  ^
 --------------------------------
-Precio neto: $15000.0
-IVA: $2850.0
-Precio total: $17850.0
+Precio neto: $16000.0
+IVA: $3040.0
+Precio total: $19040.0
 --------------------------------
 
 ¡Gracias por su compra!

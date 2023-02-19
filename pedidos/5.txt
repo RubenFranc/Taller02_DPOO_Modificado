@@ -1,13 +1,14 @@
 RESTAURANTE DE HAMBURGUESAS DPOO
 --------------------------------
 
-ID pedido: 1
-Nombre cliente: Rubén Franco
-Dirección cliente: 
+ID pedido: 5
+Nombre cliente: yt
+Dirección cliente: w
 
 Artículos comprados
 --------------------------------
-3. corral pollo -> $15000.0, 1800 cal.
+3. corral pollo -> $15000.0, 1300 cal.
+  (Sin lechuga,)
  ^
 --------------------------------
 Precio neto: $15000.0

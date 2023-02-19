@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collections;
 
 public class Pedido {
 	
@@ -14,6 +15,7 @@ public class Pedido {
 	private String nombreCliente;
 	private String direccionCliente;
 	private ArrayList<Producto> pedido;
+	private ArrayList<String> registrosPedido;
 	
 	public Pedido(String nombreCliente, String direccionCliente, int numeroPedidos) {
 		this.nombreCliente = nombreCliente;
@@ -22,6 +24,7 @@ public class Pedido {
 		this.idPedido = this.numeroPedidos + 1;
 		this.numeroPedidos++;
 		this.pedido = new ArrayList<Producto>();
+		this.registrosPedido = new ArrayList<String>();
 		}
 	
 	public int getIdPedido() {
@@ -30,6 +33,19 @@ public class Pedido {
 	
 	public void agregarProducto(Producto nuevoItem) {
 		pedido.add(nuevoItem);
+		registrosPedido.add(nuevoItem.generarTextoFactura());
+	}
+	
+	public void ordenarPedido() {
+		Collections.sort(registrosPedido);
+	}
+	
+	public String getRegistroPedido() {
+		String registros = "";
+		for (String registro: registrosPedido) {
+			registros += registro;
+		}
+		return registros;
 	}
 	
 	private double getPrecioNetoPedido() {
@@ -62,7 +78,7 @@ public class Pedido {
 		mssg += "Dirección cliente: " + direccionCliente + "\n\n";
 		mssg += "Artículos comprados\n--------------------------------\n";
 		for (Producto producto: pedido) {
-			mssg += producto.generarTextoFactura();
+			mssg += producto.generarTextoFactura() + " ^";
 		}
 		mssg += "\n--------------------------------\nPrecio neto: $" + getPrecioNetoPedido() + "\n";
 		mssg += "IVA: $" + getPrecioIVAPedido() + "\n";

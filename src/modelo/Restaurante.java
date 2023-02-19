@@ -19,6 +19,7 @@ public class Restaurante {
 	private Map<Integer, String> mapPedidos;
 	private Map<Integer, Producto> mapNoProducto;
 	private Map<Integer, Ingrediente> mapNoIngrediente;
+	private ArrayList<String> registrosPedidos;
 	
 	public Restaurante(int numeroPedidos) {
 		this.numeroPedidos = numeroPedidos;
@@ -29,6 +30,7 @@ public class Restaurante {
 		this.mapPedidos = new HashMap<>();
 		this.mapNoProducto = new HashMap<>();
 		this.mapNoIngrediente = new HashMap<>();
+		this.registrosPedidos = new ArrayList<>();
 	}
 	
 	public void iniciarPedido(String nombreCliente, String direccionCliente) {
@@ -43,6 +45,7 @@ public class Restaurante {
 	
 	public void cerrarYGuardarPedido() throws IOException {
 		mapPedidos.put(pedidoEnCurso.getIdPedido(), pedidoEnCurso.generarTextoFactura());
+		registrosPedidos.add(pedidoEnCurso.getRegistroPedido());
 		String ruta = "pedidos/"+pedidoEnCurso.getIdPedido()+".txt";
 		File file = new File(ruta);
 		pedidoEnCurso.guardarFactura(file);
@@ -74,6 +77,10 @@ public class Restaurante {
 	
 	public Map<Integer, Producto> getProductosNo() {
 		return mapNoProducto;
+	}
+	
+	public void agregarRegistroPedido(String registro) {
+		registrosPedidos.add(registro);
 	}
 	
 	private void cargarIngredientes(String archivoIngredientes, int n) throws IOException {
@@ -171,5 +178,8 @@ public class Restaurante {
 		cargarIngredientes(archivoIngredientes, n3);
 	}
 
+	public Boolean equals() {
+		return registrosPedidos.contains(pedidoEnCurso.getRegistroPedido());
+	}
 	
 }
